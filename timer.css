@@ -1,0 +1,78 @@
+html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: "Nova Mono", monospace;
+            color: #6378AF;
+            background: #DDDFEA;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        header {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            padding: 10px 0;
+            text-align: center;
+            background-color: #DDDFEA;
+            z-index: 10;
+        }
+        header a {
+            text-decoration: none;
+            color: #6378AF;
+            font-size: 1.2em;
+        }
+
+        #timer {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            z-index: 10;
+        }
+
+        .wave-wrapper {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            transition: transform 1s linear;
+        }
+
+        .wave {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+
+        .button-group {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 16px;
+    z-index: 10;
+}
+
+.button-group button {
+    position: static;
+    transform: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #6378AF;
+    color: #DDDFEA;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

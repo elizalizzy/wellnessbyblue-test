@@ -1,0 +1,647 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.league-script-regular {
+  font-family: "League Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+.nova-mono-regular {
+  font-family: "Nova Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+  box-sizing: border-box;
+  font-family: "Nova Mono", monospace;
+  background-color: #FFFAF6;
+  color: #6378AF;
+}
+.header {
+        display: flex;
+        align-items: center;
+
+        background-color: #FFFAF6;
+}
+ nav {
+        display: block;
+        unicode-bidi: isolate;
+        padding: 0px 30px 0px 30px;
+         background-color: #FFFAF6;
+}
+.nav-list {
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+         background-color: #FFFAF6;
+}
+
+ul {
+        display: block;
+        list-style-type: disc;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        
+        unicode-bidi: isolate;
+}
+.nav-item a {
+        position: relative;
+        font-size: 20px;
+        font-family: "Nova Mono", monospace;
+        display: inline-block;
+        padding: 5px 0;
+        margin: 0 10px;
+        text-decoration: none;
+        transition: 0.3s;
+        letter-spacing: 0.1em;
+        color: #9BB1DD;
+}
+.nav-item a:hover {
+        color: #C8BAD3;
+}
+
+.firstview {
+  position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+        background-color: #DDDFEA;
+        width: 100%;
+        height: 60vh;
+        z-index: 1;
+        overflow: hidden;
+}
+.firstview h1{
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #6378AF;
+    font-family: "Nova Mono", monospace;
+    z-index: 1;
+}
+.firstview h2{
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #6378AF;
+    font-family: "League Script", cursive;
+}
+.hub {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 80px;
+    width: 100%;
+ background-color: #FFFAF6;
+}
+.hubtitle {
+  display: flex;
+    align-items: baseline;
+    text-align: center;
+    margin-bottom: 50px;
+    gap: 12px;
+
+}
+.hubtitle p{
+    font-size: 1.5em;
+    margin: 0 auto;
+}
+.hubtitle h1{
+    font-size: 2.5em;
+    margin: 0;
+
+
+}
+
+.hub-text p{
+    font-size: 1em;
+    line-height: 1.6;
+    margin: 40px  auto;
+    max-width: 400px;
+    text-align: center;
+
+}
+.timer{
+    text-align: center;
+  max-height: 300px;
+ background-color: #FFFAF6;
+    padding: 80px;
+}
+.timer button {
+    background: url('images/fish1.png') center center no-repeat;
+    background-size: contain;      /* or 'cover' if you want it to fill */
+    color: #FFFAF6;
+    border: none;
+    padding: 80px 80px;            /* Make the button large and square */
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 30%;            /* Make it a circle */
+    transition: background-color 0.3s ease, box-shadow 0.3s;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent; /* Remove solid color */
+}
+.timer button:hover {
+    background-color: #9BB1DD;
+}
+
+.timer a {
+    font-size: 1.5em;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #FFFAF6;
+    font-family: "Nova Mono", monospace;
+
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: #FFFAF6;
+}
+
+.main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hub, .aboutus, .timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+   background-color: #FFFAF6;
+}
+
+.aboutus {
+    padding: 80px;
+    text-align: center;
+    width: 100%;
+}
+.aboutus h1{
+    font-size: 2.5em;
+    color: #6378AF;
+    font-family: "Nova Mono", monospace;
+}
+.aboutus h2{   
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #6378AF;
+    font-family: "League Script", cursive;
+}
+.members {
+  display: flex;
+  justify-content: center;
+  gap: 10em;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  margin: 40px;
+  text-align: center;
+  width: 100%;
+}
+.members p{
+    font-size: 0.8em;
+    line-height: 1.5;
+    margin: 20px 0;
+    max-width: 400px;
+    text-align: center;
+}
+
+.members img{
+    width: 170px;
+    height: auto;
+    border-radius: 50%;
+    border: 4px solid #6378AF;
+}
+.wave-circle-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  z-index: 0;
+  width: 340px;
+  height: 340px;
+  pointer-events: none; /* Let mouse events pass through */
+  opacity: 0.7;
+}
+.aboutus-items {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 48px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto 40px auto;
+  position: relative;
+}
+
+.aboutus-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 32px;
+  width: 340px;
+  height: 340px;
+}
+
+.aboutus-images img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 28px;
+  background: #f5f5f5;
+  border: none;
+  box-shadow: 0 2px 12px rgba(100,120,175,0.07);
+}
+
+/* Place the third image in the bottom left cell */
+.aboutus-images img:nth-child(3) {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+
+/* Text section */
+.aboutus-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  margin-top: 0;
+}
+
+.aboutus-text h1,
+.aboutus-text h2 {
+  text-align: left;
+  margin-left: 0;
+}
+
+.aboutus-text h1 {
+  font-size: 2.5em;
+  margin-bottom: 0.2em;
+  font-family: "Nova Mono", monospace;
+}
+
+.aboutus-text h2 {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+  font-family: "League Script", cursive;
+}
+
+.aboutus-text p {
+  font-size: 1em;
+  max-width: 500px;
+  line-height: 1.6;
+}
+
+
+
+.header-logo img {
+    width: 50px;
+    height: auto;
+    margin: 10px 30px;
+}
+.collumn h1{
+    font-size: 2.5em;
+    color: #6378AF;
+    font-family: "Nova Mono", monospace;
+
+}
+.collumn h2{   
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #6378AF;
+    font-family: "League Script", cursive;
+}
+.collumn {
+    text-align: center;
+    margin: 40px  auto;
+    background-image: url('images/collumnbg.png');
+}
+.collumn-section {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: transparent;
+  position: relative;
+  margin-top: 100px;
+}
+
+.collumn-preview {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  transition: opacity 0.8s, transform 0.8s;
+}
+
+.collumn-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.collumn-titles {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  width: 80%;
+  text-align: center;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.collumn-titles h1 {
+  font-size: 2.8em;
+  color: #fff;
+  font-family: "Nova Mono", monospace;
+  text-shadow: 0 2px 12px rgba(100,120,175,0.18);
+}
+
+.collumn-titles h2 {
+  font-size: 2em;
+  color: #fff;
+  font-family: "League Script", cursive;
+  margin-top: 0.5em;
+  text-shadow: 0 2px 12px rgba(100,120,175,0.18);
+}
+
+.collumn-hoverbox {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  margin: auto;
+  width: 50%;
+  height: 50%;
+  background: rgba(255,255,255,0.85);
+  border-radius: 32px;
+  box-shadow: 0 4px 32px rgba(100,120,175,0.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 4.5s;
+  z-index: 3;
+  text-align: center;
+  font-size: 1.3em;
+  color: #6378AF;
+  padding: 40px;
+}
+
+.collumn-preview:hover .collumn-hoverbox {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+
+.places {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 80px;
+    width: 100%;
+    background-color: #6378AF;
+    position: relative; /* Needed for absolute children */
+  height: 1100px;
+  overflow: hidden;
+
+}
+.places h1{
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #FFFAF6;
+    font-family: "Nova Mono", monospace;
+}
+.places h2{
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #FFFAF6;
+}
+.places p{
+    font-size: 1em;
+    line-height: 1.6;
+    margin: 40px  auto;
+    max-width: 400px;
+    text-align: center;
+    color: #DDDFEA;
+    z-index: 1;
+    position: relative;
+}
+.place-item {
+  position: absolute;
+  z-index: 2;
+  transition: transform 1s ease, opacity 0.4s ease;
+  transform-origin: center;
+  cursor: pointer;
+  pointer-events: auto;
+  overflow: visible;
+}
+.place-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform-origin: center;
+}
+.place-item-1 { left: -5%;  top: 35%;  width: 50%; transform: rotate(-2deg); }
+.place-item-2 { right: 23%; top: 55%;  width: 40%; transform: rotate(0deg); }
+.place-item-3 { left: 60%; top: 75%;  width: 60%; transform: rotate(-4deg);  }
+/* overlay alt-image and swap on hover */
+.place-item {
+  position: absolute;
+  overflow: visible;
+}
+
+/* main image participates in layout and defines container size */
+.place-item .main-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: opacity 1s ease, transform 0.35s ease;
+}
+
+/* alt image sits on top, hidden by default */
+.place-item .alt-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* or cover */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease, transform 0.35s ease;
+  z-index: 3;
+}
+
+/* on hover swap: show alt, hide main (smooth) */
+.place-item:hover .main-img {
+  opacity: 0;
+  transform: scale(0.98);
+}
+.place-item:hover .alt-img {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+/* optional: small pop on hover for visible effect */
+.place-item:hover {
+  z-index: 10;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 80px;
+    width: 100%;
+    background-color: #6378AF;
+}
+.contact a{
+  font-size: 1.5em;
+  text-decoration: none;
+  color: #FFFAF6;
+}
+.contact:hover .contact-items a{
+  color: #C8BAD3;
+}
+
+
+.contact h1{
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #FFFAF6;
+    font-family: "Nova Mono", monospace;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #51669F;
+    width: 100%;
+    color: #9BB1DD;
+}
+
+/* phone sizing*/
+
+@media(prefers-color-scheme: dark) {
+    body {
+        background-color: #FFFAF6;
+        color: #6378AF;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+        .header-logo img {
+         width: 30px;
+         height: auto;
+        }
+}
+
+@media screen and (max-width: 768px) {
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+}
+@media screen and (max-width: 768px) {
+        .nav-list {
+            flex-wrap: wrap; /* Allow items to wrap to the next line */
+            justify-content: space-between; /* Adjust spacing between items */
+        }
+        .nav-item {
+            flex: 1 1 50%; /* Each item takes up 50% of the width */
+            text-align: right; /* Center align text */
+        }
+}
+@media screen and (max-width: 768px) {
+        .nav {
+            padding: 0px 20px 0px 0px; 
+
+        }
+}
+@media screen and (max-width: 768px) {
+        .nav-item a {
+            position: relative;
+            font-size: 12px;
+            display: inline-block;
+            padding: 2vw 0;
+            transition: 0.3s;
+            letter-spacing: 0.05em;
+            color: #C8BAD3;
+        }
+}
+/* Responsive for mobile */
+@media (max-width: 900px) {
+  .aboutus-items {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .aboutus-images {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    width: 220px;
+    height: 220px;
+    gap: 12px;
+  }
+  .aboutus-images img {
+    width: 100px;
+    height: 100px;
+  }
+  .aboutus-text {
+    align-items: center;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 768px) {
+    .timer button {
+        padding: 20px 10px;
+        font-size: 0.8em;
+        border-radius: 50px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .collumn-section {
+        margin-top: 50px;
+        padding: 0 10px;
+    }
+    .collumn-img {
+        width: 100%;
+    }
+    .collumn-titles h1 {
+        font-size: 1.8em;
+    }
+    .collumn-titles h2 {
+        font-size: 1.2em;
+    }
+    .collumn-hoverbox {
+        width: 70%;
+        height: auto;
+        font-size: 1em;
+        padding: 20px;
+    }
+}
