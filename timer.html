@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Timer</title>
+    <link rel="stylesheet" href="timer.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=League+Script&family=Nova+Mono&display=swap" rel="stylesheet">
+
+</head>
+     <body>
+        <header> <a href="bluewellness.html#timer">go back</a></header>
+        <div id="timer">05:00</div>
+        <div class="button-group">
+            <button id="startBtn">Start</button>
+            <button id="stopBtn"> Stop</button>
+        </div>
+        <div class="wave-wrapper" id="waveWrapper">
+          <svg class="wave" viewBox="0 0 600 100" preserveAspectRatio="none">
+            <path id="wavePathBack2" fill="rgba(200, 210, 239,0.5)" />   <!-- lightest blue -->
+            <path id="wavePathBack1" fill="rgba(155, 177, 221,0.6)" />   <!-- medium blue -->
+            <path id="wavePath" fill="rgba(99, 120, 175,0.8)" />        <!-- darkest blue -->
+          </svg>
+        </div>
+        
+
+            <script>
+const totalTime = 300; // 5 minutes in seconds
+let timeLeft = totalTime;
+let timerInterval = null;
+let waveAnimationFrame = null;
+
+const timer = document.getElementById("timer");
+const waveWrapper = document.getElementById("waveWrapper");
+const startBtn = document.getElementById("startBtn");
+const stopBtn = document.getElementById("stopBtn");
+const wavePath = document.getElementById("wavePath");
+
+function updateTimer() {
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft % 60;
+    timer.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+    // Move the wave down over time (0% → 100%)
+    const progress = 1 - (timeLeft / totalTime);
+    waveWrapper.style.transform = `translateY(${progress * 80}%)`;
+
+    if (timeLeft > 0) {
+        timeLeft--;
+    } else {
+        clearInterval(timerInterval);
+        timerInterval = null;
+        timer.textContent = "Done!";
+        startBtn.disabled = false;
+        stopBtn.disabled = true;
+        cancelAnimationFrame(waveAnimationFrame);
+    }
+}
+
+function animateWave() {
+    const now = Date.now() / 1000;
+    const width = 600;
+    const height = 100;
+    const waveCount = 9;
+    const baseY = 20;
+
+    // Back wave 2 (farthest, slowest, lowest amplitude)
+    let d2 = `M0,${baseY}`;
+    for (let i = 0; i <= waveCount; i++) {
+        const x = (i * width) / waveCount;
+        const phase = (now * 0.7) + (i * Math.PI / waveCount) + 2;
+        const y = baseY + Math.sin(phase) * 3;
+        d2 += ` L${x},${y}`;
+    }
+    d2 += ` V${height} H0 Z`;
+    document.getElementById("wavePathBack2").setAttribute("d", d2);
+
+    // Back wave 1 (middle)
+    let d1 = `M0,${baseY}`;
+    for (let i = 0; i <= waveCount; i++) {
+        const x = (i * width) / waveCount;
+        const phase = (now * 1.0) + (i * Math.PI / waveCount) + 1;
+        const y = baseY + Math.sin(phase) * 4;
+        d1 += ` L${x},${y}`;
+    }
+    d1 += ` V${height} H0 Z`;
+    document.getElementById("wavePathBack1").setAttribute("d", d1);
+
+    // Front wave (main)
+    let d = `M0,${baseY}`;
+    for (let i = 0; i <= waveCount; i++) {
+        const x = (i * width) / waveCount;
+        const phase = (now * 1.5) + (i * Math.PI / waveCount);
+        const y = baseY + Math.sin(phase) * 5;
+        d += ` L${x},${y}`;
+    }
+    d += ` V${height} H0 Z`;
+    document.getElementById("wavePath").setAttribute("d", d);
+
+    waveAnimationFrame = requestAnimationFrame(animateWave);
+}
+
+updateTimer();
+animateWave();
+
+startBtn.addEventListener("click", function() {
+    if (timerInterval) clearInterval(timerInterval);
+    timeLeft = totalTime;
+    updateTimer();
+    timerInterval = setInterval(updateTimer, 1000);
+    startBtn.disabled = true;
+    stopBtn.disabled = false;
+    animateWave();
+});
+
+stopBtn.addEventListener("click", function() {
+    clearInterval(timerInterval);
+    timerInterval = null;
+    startBtn.disabled = false;
+    stopBtn.disabled = true;
+    cancelAnimationFrame(waveAnimationFrame);
+});
+
+stopBtn.disabled = true;
+</script>
+                
+</body>
+</html>
